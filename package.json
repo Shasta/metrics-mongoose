@@ -1,26 +1,26 @@
 {
-    "private": true,
-    "name": "metrics-mongoose",
-    "dependencies": {
-      "babel-cli": "^6.23.0",
-      "babel-core": "^6.23.1",
-      "babel-loader": "^6.3.2",
-      "babel-preset-es2015": "^6.22.0",
-      "babel-register": "^6.23.0",
-      "dev": "^0.1.3",
-      "mongoose": "^4.8.4",
-      "webpack": "^2.2.1"
-    },
-    "scripts": {
-      "dist": "webpack --env=production --progress --profile --colors --config webpack.config.babel.js",
-      "dist:modules": "babel ./src --out-dir ./dist-modules"
-    },
-    "version": "1.0.0",
-    "description": "Data model for Shasta electric counter metrics and validations",
-    "main": "dist/main.bundle.js",
-    "modules": "dist-modules/",
-    "repository": "https://kartojal@bitbucket.org/ante-analytics/data-model.git",
-    "author": "kartojal <canillas.mail@gmail.com>",
-    "license": "Shasta - Copyright (c)"
-  }
-  
+  "private": true,
+  "name": "metrics-mongoose",
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "dev": "^0.1.3",
+    "mongoose": "^4.8.4",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "build": "yarn run dist && yarn run dist:modules",
+    "dist": "webpack --env=production --progress --profile --colors --config webpack.config.babel.js",
+    "dist:modules": "babel ./src --out-dir ./dist-modules"
+  },
+  "version": "1.0.0",
+  "description": "Data model for Shasta electric counter metrics and validations",
+  "main": "dist/main.bundle.js",
+  "modules": "dist-modules/",
+  "repository": "https://kartojal@bitbucket.org/ante-analytics/data-model.git",
+  "author": "kartojal <canillas.mail@gmail.com>",
+  "license": "Shasta - Copyright (c)"
+}
