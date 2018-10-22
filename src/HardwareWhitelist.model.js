@@ -1,3 +1,8 @@
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+
 export const HardwareWhitelist = new Schema({
   _id: {
     type: ObjectId,

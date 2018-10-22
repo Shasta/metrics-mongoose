@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("mongoose"));
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define(["mongoose"], factory);
 	else if(typeof exports === 'object')
-		exports["metrics-mongoose"] = factory();
+		exports["metrics-mongoose"] = factory(require("mongoose"));
 	else
-		root["metrics-mongoose"] = factory();
-})(this, function() {
+		root["metrics-mongoose"] = factory(root["mongoose"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_0__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -73,11 +73,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86,6 +92,17 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.GlobalProofBatch = exports.RawBatchProof = undefined;
+
+var _mongoose = __webpack_require__(0);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
+var ObjectId = Schema.ObjectId;
+
 var RawBatchProof = exports.RawBatchProof = new Schema({
   _id: false,
   batch_metrics_ipfs: {
@@ -129,7 +146,7 @@ var GlobalProofBatch = exports.GlobalProofBatch = new Schema({
 });
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -138,6 +155,17 @@ var GlobalProofBatch = exports.GlobalProofBatch = new Schema({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.HardwareProofBatch = exports.RawMetricProof = undefined;
+
+var _mongoose = __webpack_require__(0);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
+var ObjectId = Schema.ObjectId;
+
 var RawMetricProof = exports.RawMetricProof = new Schema({
   _id: false,
   metric_ipfs: {
@@ -187,7 +215,7 @@ var HardwareProofBatch = exports.HardwareProofBatch = new Schema({
 });
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -196,6 +224,17 @@ var HardwareProofBatch = exports.HardwareProofBatch = new Schema({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.HardwareWhitelist = undefined;
+
+var _mongoose = __webpack_require__(0);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
+var ObjectId = Schema.ObjectId;
+
 var HardwareWhitelist = exports.HardwareWhitelist = new Schema({
   _id: {
     type: ObjectId,
@@ -217,7 +256,7 @@ var HardwareWhitelist = exports.HardwareWhitelist = new Schema({
 });
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -226,6 +265,17 @@ var HardwareWhitelist = exports.HardwareWhitelist = new Schema({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.MetricProof = undefined;
+
+var _mongoose = __webpack_require__(0);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
+var ObjectId = Schema.ObjectId;
+
 var MetricProof = exports.MetricProof = new Schema({
   _id: {
     type: ObjectId,
@@ -261,7 +311,7 @@ var MetricProof = exports.MetricProof = new Schema({
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -272,13 +322,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.HardwareWhitelist = exports.GlobalProofBatch = exports.HardwareProofBatch = exports.MetricProof = undefined;
 
-var _MetricProofModel = __webpack_require__(3);
+var _MetricProofModel = __webpack_require__(4);
 
-var _HardwareProofBatch = __webpack_require__(1);
+var _HardwareProofBatch = __webpack_require__(2);
 
-var _GlobalProofBatch = __webpack_require__(0);
+var _GlobalProofBatch = __webpack_require__(1);
 
-var _HardwareWhitelistModel = __webpack_require__(2);
+var _HardwareWhitelistModel = __webpack_require__(3);
 
 exports.MetricProof = _MetricProofModel.MetricProof;
 exports.HardwareProofBatch = _HardwareProofBatch.HardwareProofBatch;
