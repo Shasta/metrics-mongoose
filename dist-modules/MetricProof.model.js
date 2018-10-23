@@ -29,6 +29,12 @@ var MetricProof = exports.MetricProof = new Schema({
     index: true,
     required: true
   },
+  consolidated: {
+    type: Boolean,
+    index: true,
+    required: false,
+    default: false
+  },
   metrics: {
     timestamp: {
       type: Number,
