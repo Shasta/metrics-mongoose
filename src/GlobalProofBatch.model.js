@@ -3,24 +3,6 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-export const RawBatchProof = new Schema({
-  _id: false,
-  batch_metrics_ipfs: {
-    type: String,
-    required: true
-  },
-  batch_timestamp: {
-    type: Date,
-    required: true
-  },
-  hardware_id: {
-    type: String,
-    required: true
-  }
-}, {
-  timestamps: false
-})
-
 export const GlobalProofBatch = new Schema({
     _id: {
       type: ObjectId,
@@ -31,13 +13,9 @@ export const GlobalProofBatch = new Schema({
       index: true,
       required: true
     },
-    metric_proofs: {
-      type: [RawBatchProof],
-      required: true
-    },
-    metric_proofs_ref: {
+    hardware_batches: {
       type: [ObjectId],
-      ref: 'MetricProofs',
+      ref: 'HardwareProofBatch',
       required: true
     }
   }, {

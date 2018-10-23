@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "metrics-mongoose",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "dependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",

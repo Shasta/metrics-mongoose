@@ -19,16 +19,16 @@ export const MetricProof = new Schema({
       required: true
     },
     metrics: {
+      timestamp: {
+        type: Number,
+        required: true
+      },
       watts_consumed: {
         type: Number,
         required: true
       },
       watts_produced: {
         type: Number,
-        required: true
-      },
-      timestamp: {
-        type: Date,
         required: true
       }
     }

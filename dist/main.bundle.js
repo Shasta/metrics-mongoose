@@ -92,7 +92,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GlobalProofBatch = exports.RawBatchProof = undefined;
+exports.GlobalProofBatch = undefined;
 
 var _mongoose = __webpack_require__(0);
 
@@ -102,24 +102,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Schema = _mongoose2.default.Schema;
 var ObjectId = Schema.ObjectId;
-
-var RawBatchProof = exports.RawBatchProof = new Schema({
-  _id: false,
-  batch_metrics_ipfs: {
-    type: String,
-    required: true
-  },
-  batch_timestamp: {
-    type: Date,
-    required: true
-  },
-  hardware_id: {
-    type: String,
-    required: true
-  }
-}, {
-  timestamps: false
-});
 
 var GlobalProofBatch = exports.GlobalProofBatch = new Schema({
   _id: {
@@ -131,13 +113,9 @@ var GlobalProofBatch = exports.GlobalProofBatch = new Schema({
     index: true,
     required: true
   },
-  metric_proofs: {
-    type: [RawBatchProof],
-    required: true
-  },
-  metric_proofs_ref: {
+  hardware_batches: {
     type: [ObjectId],
-    ref: 'MetricProofs',
+    ref: 'HardwareProofBatch',
     required: true
   }
 }, {
@@ -155,7 +133,7 @@ var GlobalProofBatch = exports.GlobalProofBatch = new Schema({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HardwareProofBatch = exports.RawMetricProof = undefined;
+exports.HardwareProofBatch = undefined;
 
 var _mongoose = __webpack_require__(0);
 
@@ -165,25 +143,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Schema = _mongoose2.default.Schema;
 var ObjectId = Schema.ObjectId;
-
-var RawMetricProof = exports.RawMetricProof = new Schema({
-  _id: false,
-  metric_ipfs: {
-    type: String,
-    required: true
-  },
-  metric_timestamp: {
-    type: Date,
-    required: true
-  },
-  hardware_id: {
-    type: String,
-    required: true
-  }
-
-}, {
-  timestamps: false
-});
 
 var HardwareProofBatch = exports.HardwareProofBatch = new Schema({
   _id: {
@@ -200,13 +159,9 @@ var HardwareProofBatch = exports.HardwareProofBatch = new Schema({
     index: true,
     required: true
   },
-  metric_proofs: {
-    type: [RawMetricProof],
-    required: true
-  },
   metric_proofs_ref: {
     type: [ObjectId],
-    ref: 'MetricProofs',
+    ref: 'MetricProof',
     required: true
   }
 }, {
@@ -292,16 +247,16 @@ var MetricProof = exports.MetricProof = new Schema({
     required: true
   },
   metrics: {
+    timestamp: {
+      type: Number,
+      required: true
+    },
     watts_consumed: {
       type: Number,
       required: true
     },
     watts_produced: {
       type: Number,
-      required: true
-    },
-    timestamp: {
-      type: Date,
       required: true
     }
   }
