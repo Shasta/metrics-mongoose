@@ -253,6 +253,10 @@ var MetricProof = exports.MetricProof = new Schema({
     default: false
   },
   metrics: {
+    hardware_id: {
+      type: String,
+      required: true
+    },
     timestamp: {
       type: Number,
       required: true
