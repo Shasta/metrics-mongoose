@@ -32,6 +32,10 @@ var BillStore = exports.BillStore = new Schema({
         type: String,
         required: true
     },
+    last_bill: {
+        type: String,
+        required: true
+    },
     leaf: {
         type: String,
         required: true
@@ -44,6 +48,12 @@ var BillStore = exports.BillStore = new Schema({
     metric_base_id: {
         type: String,
         required: true
+    },
+    payed: {
+        type: Boolean,
+        index: true,
+        required: false,
+        default: false
     },
     price_watt_hour: {
         type: Number,

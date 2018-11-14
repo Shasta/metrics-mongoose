@@ -21,6 +21,10 @@ export const BillStore = new Schema({
         type: String,
         required: true
     },
+    last_bill: {
+        type: String,
+        required: true
+    },
     leaf: {
         type: String,
         required: true
@@ -34,6 +38,12 @@ export const BillStore = new Schema({
         type: String,
         required: true
     },
+    payed: {
+        type: Boolean,
+        index: true,
+        required: false,
+        default: false
+      },
     price_watt_hour: {
         type: Number,
         required: true
