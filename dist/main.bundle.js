@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -84,6 +84,88 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.BillStore = undefined;
+
+var _mongoose = __webpack_require__(0);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
+var ObjectId = Schema.ObjectId;
+
+var BillStore = exports.BillStore = new Schema({
+    _id: {
+        type: ObjectId,
+        auto: true
+    },
+    consumption: {
+        type: Number,
+        required: true
+    },
+    hardware_id: {
+        type: String,
+        index: true,
+        required: true
+    },
+    ipfs_hash: {
+        type: String,
+        required: true
+    },
+    leaf: {
+        type: String,
+        required: true
+    },
+    merkle_root: {
+        type: String,
+        index: true,
+        required: true
+    },
+    metric_base_id: {
+        type: String,
+        required: true
+    },
+    price_watt_hour: {
+        type: Number,
+        required: true
+    },
+    proofs: {
+        type: []
+    },
+    round_id: {
+        type: Number,
+        index: true,
+        required: true
+    },
+    timestamp: {
+        type: Number,
+        required: true
+    },
+    token_address: {
+        type: String,
+        index: true,
+        required: true
+    },
+    token_amount: {
+        type: Number,
+        required: true
+    }
+}, {
+    // Add a timestamp when the doc is created and updated
+    timestamps: true
+});
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -124,7 +206,7 @@ var GlobalProofBatch = exports.GlobalProofBatch = new Schema({
 });
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -170,7 +252,7 @@ var HardwareProofBatch = exports.HardwareProofBatch = new Schema({
 });
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -211,7 +293,7 @@ var HardwareWhitelist = exports.HardwareWhitelist = new Schema({
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -276,7 +358,7 @@ var MetricProof = exports.MetricProof = new Schema({
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -285,16 +367,19 @@ var MetricProof = exports.MetricProof = new Schema({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HardwareWhitelist = exports.GlobalProofBatch = exports.HardwareProofBatch = exports.MetricProof = undefined;
+exports.HardwareWhitelist = exports.GlobalProofBatch = exports.HardwareProofBatch = exports.MetricProof = exports.BillStore = undefined;
 
-var _MetricProofModel = __webpack_require__(4);
+var _MetricProofModel = __webpack_require__(5);
 
-var _HardwareProofBatch = __webpack_require__(2);
+var _HardwareProofBatch = __webpack_require__(3);
 
-var _GlobalProofBatch = __webpack_require__(1);
+var _GlobalProofBatch = __webpack_require__(2);
 
-var _HardwareWhitelistModel = __webpack_require__(3);
+var _HardwareWhitelistModel = __webpack_require__(4);
 
+var _BillStoreModel = __webpack_require__(1);
+
+exports.BillStore = _BillStoreModel.BillStore;
 exports.MetricProof = _MetricProofModel.MetricProof;
 exports.HardwareProofBatch = _HardwareProofBatch.HardwareProofBatch;
 exports.GlobalProofBatch = _GlobalProofBatch.GlobalProofBatch;
